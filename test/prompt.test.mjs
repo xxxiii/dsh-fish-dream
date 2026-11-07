@@ -16,13 +16,13 @@ const seed = {
 }
 
 test('只认她的屋子：cwd 必须落在 fishDir 下', () => {
-  const fish = 'C:\\Users\\someone\\.dsh-fish'
+  const fish = '/home/someone/.dsh-fish'
   const agent = (cwd) => ({ session: { header: { cwd } } })
   assert.equal(isFishAgent(agent(fish), fish), true)
-  assert.equal(isFishAgent(agent(fish + '\\home'), fish), true)
-  assert.equal(isFishAgent(agent('C:\\Users\\someone\\Documents'), fish), false)
+  assert.equal(isFishAgent(agent(fish + '/home'), fish), true)
+  assert.equal(isFishAgent(agent('/home/someone/Documents'), fish), false)
   assert.equal(isFishAgent(agent(''), fish), false)
-  assert.equal(cwdOf(agent(fish + '\\home')), fish + '\\home')
+  assert.equal(cwdOf(agent(fish + '/home')), fish + '/home')
 })
 
 test('没有 pending 时提示为空', () => {
@@ -42,10 +42,10 @@ test('有 pending 时提示包含碎片，但不暴露假说名', () => {
 
 test('非她的会话不挂提示段', () => {
   const cfg = tmpCfg()
-  cfg.fishDir = 'C:\\fish'
+  cfg.fishDir = '/fish'
   let called = 0
   const agent = {
-    session: { header: { cwd: 'C:\\other' } },
+    session: { header: { cwd: '/other' } },
     ctx: { systemPrompt: { section: () => { called += 1; return () => {} } } },
   }
   assert.equal(attachDreamNotice(agent, cfg), false)
@@ -54,10 +54,10 @@ test('非她的会话不挂提示段', () => {
 
 test('她的会话挂一次，重复调用不重复挂', () => {
   const cfg = tmpCfg()
-  cfg.fishDir = 'C:\\fish'
+  cfg.fishDir = '/fish'
   const sections = []
   const agent = {
-    session: { header: { cwd: 'C:\\fish\\home' } },
+    session: { header: { cwd: '/fish/home' } },
     ctx: { systemPrompt: { section: (s) => { sections.push(s); return () => {} } } },
   }
   assert.equal(attachDreamNotice(agent, cfg), true)
@@ -69,7 +69,7 @@ test('她的会话挂一次，重复调用不重复挂', () => {
 
 test('agent/created 上挂，事件一来就生效', () => {
   const cfg = tmpCfg()
-  cfg.fishDir = 'C:\\fish'
+  cfg.fishDir = '/fish'
   let handler = null
   const ctx = { on: (name, fn) => ((handler = fn), () => {}) }
   const off = registerAgentCreated(ctx, cfg)
@@ -77,7 +77,7 @@ test('agent/created 上挂，事件一来就生效', () => {
 
   const sections = []
   const agent = {
-    session: { header: { cwd: 'C:\\fish\\home' } },
+    session: { header: { cwd: '/fish/home' } },
     ctx: { systemPrompt: { section: (s) => (sections.push(s), () => {}) } },
   }
   handler(agent)
