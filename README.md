@@ -210,7 +210,7 @@ three-beat arc). She writes the dream herself; the plugin never calls a model.
 1. 把本仓库放进插件目录，例如 `~/.dsh/plugins/dsh-fish-dream`：
 
    ```bash
-   git clone https://github.com/<your-name>/dsh-fish-dream ~/.dsh/plugins/dsh-fish-dream
+   git clone https://github.com/xxxiii/dsh-fish-dream ~/.dsh/plugins/dsh-fish-dream
    ```
 
 2. 编辑 `~/.dsh/profiles/desktop/package.json`：

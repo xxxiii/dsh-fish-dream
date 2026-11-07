@@ -33,6 +33,14 @@
     "dream"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxxiii/dsh-fish-dream.git"
+  },
+  "homepage": "https://github.com/xxxiii/dsh-fish-dream#readme",
+  "bugs": {
+    "url": "https://github.com/xxxiii/dsh-fish-dream/issues"
+  },
   "engines": {
     "node": ">=20"
   },
