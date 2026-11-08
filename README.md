@@ -207,6 +207,17 @@ three-beat arc). She writes the dream herself; the plugin never calls a model.
 
 前提：Node ≥ 20；已经装好并跑起来 [dsh-fish](https://github.com/ssamurias/dsh-fish)。
 
+### A. 从 npm 装（推荐）
+
+```bash
+pnpm add dsh-fish-dream --dir ~/.dsh/profiles/desktop
+```
+
+然后把 `"dsh-fish-dream"` 加进 `~/.dsh/profiles/desktop/package.json` 的 `dsh.profile.bundles`，
+重启 DSH。预构建安装不需要 `allowBuilds` 构建授权，也不用自己 clone。
+
+### B. 从源码装
+
 1. 把本仓库放进插件目录，例如 `~/.dsh/plugins/dsh-fish-dream`：
 
    ```bash
