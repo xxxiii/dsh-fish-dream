@@ -7,6 +7,7 @@
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Tests](https://img.shields.io/badge/tests-55%20passing-brightgreen)](#测试)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](#安装)
+[![npm](https://img.shields.io/npm/v/dsh-fish-dream?logo=npm&color=cb3837)](https://www.npmjs.com/package/dsh-fish-dream)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 **English** — A dream plugin for [dsh-fish](https://github.com/ssamurias/dsh-fish) on
@@ -208,6 +209,8 @@ three-beat arc). She writes the dream herself; the plugin never calls a model.
 前提：Node ≥ 20；已经装好并跑起来 [dsh-fish](https://github.com/ssamurias/dsh-fish)。
 
 ### A. 从 npm 装（推荐）
+
+包在 **[npmjs.com/package/dsh-fish-dream](https://www.npmjs.com/package/dsh-fish-dream)**，当前版本 `0.1.0`。
 
 ```bash
 pnpm add dsh-fish-dream --dir ~/.dsh/profiles/desktop
